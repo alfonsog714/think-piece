@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB1oaPFdF3ojgMdqcUUbKMJnmRU3ifXOeY",
@@ -12,6 +13,9 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+export const firestore = firebase.firestore();
+
+firestore.settings({ timestampsInSnapshots: true });
 // attaches firebase stuff to the window, allowing us to do firebase related stuff in the console. Remove in production.
 window.firebase = firebase;
 
