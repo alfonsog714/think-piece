@@ -21,7 +21,7 @@ class Application extends Component {
             });
     };
 
-    componentWillMount = () => {
+    componentWillUnmount = () => {
         this.unsubscribe();
     };
 
