@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB1oaPFdF3ojgMdqcUUbKMJnmRU3ifXOeY",
@@ -14,6 +15,11 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const firestore = firebase.firestore();
+export const auth = firebase.auth();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signOut = () => auth.signOut();
 
 firestore.settings({ timestampsInSnapshots: true });
 // attaches firebase stuff to the window, allowing us to do firebase related stuff in the console. Remove in production.
